@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: core-apps
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: simple-apps
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-apps
