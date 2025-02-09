@@ -20,3 +20,9 @@ kubectl apply -k argocd-setup/overlays/prod
 ```
 
 This setup ensures that Argo CD is installed and configured to manage its own resources within the cluster.
+
+Access the Argo CD UI:
+
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:80
+```
