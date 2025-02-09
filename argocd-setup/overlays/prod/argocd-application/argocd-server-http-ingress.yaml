@@ -4,7 +4,6 @@ metadata:
   name: argocd-server-http-ingress
   namespace: argocd
   annotations:
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   ingressClassName: nginx
@@ -18,8 +17,3 @@ spec:
             name: argocd-server
             port:
               name: http
-    host: argocd-vdww.duckdns.org
-  tls:
-  - hosts:
-    - argocd-vdww.duckdns.org
-    secretName: argocd-vdww-tls-secret
