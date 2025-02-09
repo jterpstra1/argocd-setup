@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../base
+- namespaces.yaml
+- argocd-application
+- projects
+
+patches:
+- patch: |-
+    - op: add
+      path: /rules/-
+      value:
+        apiGroups:
+        - argoproj.io
+        resources:
+        - applications
+        - applicationsets
+        - appprojects
+        verbs:
+        - create
+        - get
+        - list
+        - watch
+        - update
+        - delete
+        - patch
+  target:
+    kind: ClusterRole
+    name: argocd-server
