@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   type: LoadBalancer
-  loadBalancerIP: 172.16.11.200
+  loadBalancerIP: 172.16.11.210
   selector:
     app.kubernetes.io/name: argocd-server
   ports:
