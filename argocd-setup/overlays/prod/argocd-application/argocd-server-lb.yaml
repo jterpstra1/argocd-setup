@@ -7,7 +7,7 @@ metadata:
     metallb.universe.tf/allow-shared-ip: "argocd"
 spec:
   type: LoadBalancer
-  loadBalancerIP: 172.16.11.  # Change this to an IP within your MetalLB address pool
+  loadBalancerIP: 172.16.11.20
   ports:
     - name: http
       port: 80
