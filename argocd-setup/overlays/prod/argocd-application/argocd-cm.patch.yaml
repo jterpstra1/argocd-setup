@@ -5,3 +5,12 @@ metadata:
 data:
   kustomize.buildOptions: "--enable-helm"
   statusbadge.enabled: "true"
+  resource.exclusions: |
+    - apiGroups:
+        - batch
+      kinds:
+        - Job
+      clusters:
+        - "*"
+      names:
+        - ingress-nginx-admission-patch
