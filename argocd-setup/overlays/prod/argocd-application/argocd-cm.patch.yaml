@@ -22,7 +22,6 @@ data:
     clientSecret: $oidc.pocketid.clientSecret
     requestedScopes: ["openid", "profile", "email", "groups"]
     requestedIDTokenClaims: {"groups": {"essential": true}}
-  policy.default: role:readonly
   policy.csv: |
     p, role:admin, *, *, *, allow
     p, role:readonly, applications, get, */*, allow
