@@ -22,21 +22,3 @@ data:
     clientSecret: $oidc.pocketid.clientSecret
     requestedScopes: ["openid", "profile", "email", "groups"]
     requestedIDTokenClaims: {"groups": {"essential": true}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  namespace: argocd
-  name: argocd-rbac-cm
-data:
-  policy.default: role:''
-  policy.csv: |
-    p, role:admin, *, *, *, allow
-    p, role:readonly, applications, get, */*, allow
-    p, role:readonly, clusters, get, *, allow
-    p, role:readonly, repositories, get, *, allow
-    p, role:readonly, certificates, get, *, allow
-    p, role:readonly, logs, get, *, allow
-    g, argocd_admin, role:admin
-    g, argocd_readonly, role:readonly
-  scopes: '[groups]'
