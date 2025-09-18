@@ -19,7 +19,7 @@ data:
     name: PocketID
     issuer: https://id.terpstra.tech
     clientId: a0c109e7-b60d-4baf-980a-a044cb26f3fe
-    clientSecret: $argocd-pocketid-client-secret:password
+    clientSecret: $oidc.pocketid.clientSecret
     requestedScopes: ["openid", "profile", "email", "groups"]
     requestedIDTokenClaims: {"groups": {"essential": true}}
   policy.default: role:readonly
