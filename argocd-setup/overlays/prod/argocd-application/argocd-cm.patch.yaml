@@ -33,6 +33,7 @@ data:
     p, role:admin, logs, *, *, allow
     p, role:admin, exec, *, *, allow
     p, role:admin, extensions, *, *, allow
+    p, role:admin, projects, *, *, allow
     p, role:readonly, applications, get, */*, allow
     p, role:readonly, applications, sync, */*, allow
     p, role:readonly, clusters, get, *, allow
