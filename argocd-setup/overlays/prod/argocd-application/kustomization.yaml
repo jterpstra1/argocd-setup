@@ -10,7 +10,7 @@ resources:
 - argocd-secret.yaml
 
 patchesStrategicMerge:
-- path: argocd-rbac-cm.patch.yaml
+- argocd-rbac-cm.patch.yaml
 
 patches:
 - path: argocd-cm.patch.yaml
