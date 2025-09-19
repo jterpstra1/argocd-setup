@@ -7,3 +7,5 @@ resources:
 - overlays/core-apps
 - overlays/simple-apps
 - overlays/tests
+- overlays/private-apps
+- overlays/public-apps
