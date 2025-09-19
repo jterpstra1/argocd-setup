@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: public-apps
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  destinations:
+    - namespace: '*'
+      name: 'public-apps'
+  sourceRepos:
+    - '*'
+  sourceNamespaces:
+    - '*'
+  roles:
+    - name: admin
+      description: Admin role with full access
+      policies:
+        - p, proj:public-apps:admin, applications, *, public-apps/*, allow
+      groups:
+        - argocd-admins
