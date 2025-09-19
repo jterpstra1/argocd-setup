@@ -9,9 +9,7 @@ resources:
 - argocd-server-http-ingress.yaml
 - argocd-secret.yaml
 
-patchesStrategicMerge:
-- argocd-rbac-cm.patch.yaml
-
 patches:
 - path: argocd-cm.patch.yaml
 - path: argocd-cmd-params-cm.patch.yaml
+- path: argocd-rbac-cm.patch.yaml
