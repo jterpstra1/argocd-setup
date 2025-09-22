@@ -10,7 +10,7 @@ patches:
   patch: |-
     - op: replace
       path: /metadata/name
-      value: tests
+      value: test-apps
     - op: replace
       path: /spec/description
       value: Project for tests

@@ -6,6 +6,6 @@ namespace: argocd
 resources:
 - overlays/core-apps
 - overlays/simple-apps
-- overlays/tests
+- overlays/test-apps
 - overlays/private-apps
 - public-apps.yaml
