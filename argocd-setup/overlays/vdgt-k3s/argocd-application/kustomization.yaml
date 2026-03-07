@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: argocd
+
+resources:
+- https://raw.githubusercontent.com/argoproj/argo-cd/v3.1.5/manifests/install.yaml
+- argocd-self-management.yaml
+- bootstrap-ingress-nginx.yaml
+- bootstrap-cert-manager.yaml
+- bootstrap-cluster-issuers.yaml
+- argocd-server-http-ingress.yaml
+#- argocd-secret.yaml
+
+patches:
+- path: argocd-cm.patch.yaml
+- path: argocd-cmd-params-cm.patch.yaml
+- path: argocd-rbac-cm.patch.yaml

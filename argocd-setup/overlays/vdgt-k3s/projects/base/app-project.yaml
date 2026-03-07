@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: TO_OVERLAY
+  namespace: argocd
+spec:
+  description: TO_OVERLAY
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - namespace: '*'
+    name: '*'
+  sourceRepos:
+  - '*'

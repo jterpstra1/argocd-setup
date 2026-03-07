@@ -26,3 +26,19 @@ Access the Argo CD UI:
 ```bash
 kubectl port-forward svc/argocd-server -n argocd 8080:80
 ```
+
+## Hetzner k3s Bootstrap (`vdgt-k3s`)
+
+For initial cluster bootstrap on Hetzner k3s, apply the `vdgt-k3s` overlay:
+
+```bash
+kubectl apply -k argocd-setup/overlays/vdgt-k3s
+```
+
+This overlay installs Argo CD and then uses Argo CD to bootstrap:
+
+* F5 NGINX Ingress Controller (`nginx-ingress`) with `Service.type=LoadBalancer`
+* `cert-manager` with CRDs (cluster-wide)
+* Let's Encrypt `ClusterIssuer` resources (cluster-wide)
+
+Argo CD ingress is configured for TLS with cert-manager and uses `letsencrypt-prod` by default.

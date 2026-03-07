@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  kustomize.buildOptions: "--enable-helm"
+  statusbadge.enabled: "true"
+  resource.exclusions: |
+    - apiGroups:
+        - batch
+      kinds:
+        - Job
+      clusters:
+        - "*"
+      names:
+        - ingress-nginx-admission-patch
+  url: "https://argocd.vdgtconsultancy.be"
+  oidc.config: |
+    name: PocketID
+    issuer: https://id.terpstra.tech
+    clientId: a0c109e7-b60d-4baf-980a-a044cb26f3fe
+    clientSecret: $oidc.pocketid.clientSecret
+    requestedScopes: ["openid", "profile", "email", "groups"]
+    requestedIDTokenClaims: {"groups": {"essential": true}}
