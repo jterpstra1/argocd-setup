@@ -6,9 +6,9 @@ namespace: argocd
 resources:
 - https://raw.githubusercontent.com/argoproj/argo-cd/v3.1.5/manifests/install.yaml
 - argocd-self-management.yaml
-- bootstrap-ingress-nginx.yaml
-- bootstrap-cert-manager.yaml
-- bootstrap-cluster-issuers.yaml
+- ingress-nginx.yaml
+- cert-manager.yaml
+- cluster-issuers.yaml
 - argocd-server-http-ingress.yaml
 #- argocd-secret.yaml
 

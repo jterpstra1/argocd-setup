@@ -9,10 +9,11 @@
 - Bootstrap starts by applying `argocd-setup/overlays/vdgt-k3s` with `kubectl apply -k`.
 - Argo CD then self-manages the same overlay (`argocd-self-management` points to `overlays/vdgt-k3s`).
 - Argo CD bootstraps cluster-wide ingress and certificates through three Applications:
-  - `bootstrap-ingress-nginx`
-  - `bootstrap-cert-manager`
-  - `bootstrap-cluster-issuers`
-- `bootstrap-ingress-nginx` installs the F5 NGINX Ingress Controller (`nginx-ingress` chart) and exposes it via a Hetzner `LoadBalancer` service.
+  - `ingress-nginx`
+  - `cert-manager`
+  - `cluster-issuers`
+- `ingress-nginx` uses Kustomize (`argocd-setup/overlays/vdgt-k3s/ingress-nginx`) referencing the upstream NGINX IC deployments at a pinned tag, with a strategic merge patch on the LoadBalancer service for Hetzner annotations.
+- `cert-manager` uses Kustomize (`argocd-setup/overlays/vdgt-k3s/cert-manager`) referencing the upstream cert-manager install manifest.
 - Argo CD ingress terminates TLS at NGINX and receives HTTP internally.
 
 ## Certificates

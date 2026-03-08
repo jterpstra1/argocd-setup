@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-ingress
+  namespace: nginx-ingress
+  annotations:
+    load-balancer.hetzner.cloud/name: vdgt-k3s-nginx
+    load-balancer.hetzner.cloud/location: nbg1
+    load-balancer.hetzner.cloud/use-private-ip: "false"
+spec:
+  type: LoadBalancer
