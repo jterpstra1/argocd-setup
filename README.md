@@ -42,3 +42,27 @@ This overlay installs Argo CD and then uses Argo CD to bootstrap:
 * Let's Encrypt `ClusterIssuer` resources (cluster-wide)
 
 Argo CD ingress is configured for TLS with cert-manager and uses `letsencrypt-prod` by default.
+
+### Certificates
+
+Both `letsencrypt-prod` and `letsencrypt-staging` ClusterIssuers use **DNS-01 via Cloudflare**. HTTP-01 is not used because the cluster sits behind the Cloudflare proxy, which would break the ACME self-check.
+
+The Cloudflare API token must be created manually in the cluster (it is **not** stored in Git):
+
+```bash
+kubectl create secret generic cloudflare-api-token-secret \
+  -n cert-manager \
+  --from-literal=api-token='<CLOUDFLARE_API_TOKEN>'
+```
+
+Required Cloudflare API token permissions (scoped to `vdgtconsultancy.be`):
+- Zone / Zone / Read
+- Zone / DNS / Edit
+
+### Hetzner LoadBalancer
+
+The NGINX ingress `LoadBalancer` service is pinned to Hetzner location `nbg1` via the annotation:
+
+```yaml
+load-balancer.hetzner.cloud/location: nbg1
+```
