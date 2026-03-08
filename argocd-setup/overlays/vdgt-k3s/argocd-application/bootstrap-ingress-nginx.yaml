@@ -25,6 +25,7 @@ spec:
             type: LoadBalancer
             annotations:
               load-balancer.hetzner.cloud/name: vdgt-k3s-nginx
+              load-balancer.hetzner.cloud/location: nbg1
               load-balancer.hetzner.cloud/use-private-ip: "false"
   syncPolicy:
     automated:
