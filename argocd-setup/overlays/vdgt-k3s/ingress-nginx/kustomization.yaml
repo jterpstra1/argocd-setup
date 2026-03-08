@@ -3,8 +3,16 @@ kind: Kustomization
 
 namespace: nginx-ingress
 
-resources:
-- github.com/nginx/kubernetes-ingress//deployments?ref=v5.3.4
-
-patches:
-- path: service-patch.yaml
+helmCharts:
+- name: nginx-ingress
+  repo: https://helm.nginx.com/stable
+  version: 2.4.4
+  releaseName: nginx-ingress
+  namespace: nginx-ingress
+  valuesInline:
+    controller:
+      service:
+        annotations:
+          load-balancer.hetzner.cloud/name: vdgt-k3s-nginx
+          load-balancer.hetzner.cloud/location: nbg1
+          load-balancer.hetzner.cloud/use-private-ip: "false"
