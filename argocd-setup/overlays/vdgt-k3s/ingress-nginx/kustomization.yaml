@@ -11,7 +11,8 @@ helmCharts:
   namespace: nginx-ingress
   valuesInline:
     controller:
-      enableLeaderElection: false
+      reportIngressStatus:
+        enableLeaderElection: false
       service:
         annotations:
           load-balancer.hetzner.cloud/name: vdgt-k3s-nginx
