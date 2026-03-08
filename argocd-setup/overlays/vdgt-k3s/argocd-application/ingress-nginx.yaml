@@ -20,3 +20,9 @@ spec:
       prune: true
     syncOptions:
     - CreateNamespace=true
+  ignoreDifferences:
+  - group: ""
+    kind: Service
+    jsonPointers:
+    - /spec/ports/0/nodePort
+    - /spec/ports/1/nodePort
