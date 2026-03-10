@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nfs-provisioner
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-25"
+spec:
+  destination:
+    name: in-cluster
+    namespace: nfs-provisioner
+  project: default
+  source:
+    repoURL: https://github.com/jterpstra1/argocd-setup.git
+    path: argocd-setup/overlays/vdgt-k3s/nfs-provisioner
+    targetRevision: main
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
