@@ -9,6 +9,7 @@ resources:
 - ingress-nginx.yaml
 - cert-manager.yaml
 - cluster-issuers.yaml
+- nfs-provisioner.yaml
 - argocd-server-http-ingress.yaml
 #- argocd-secret.yaml
 
