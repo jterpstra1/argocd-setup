@@ -9,7 +9,7 @@ data:
   oidc.config: |
     name: PocketID
     issuer: https://id.terpstra.tech
-    clientId: 05f1a740-d0f0-4387-b63f-afd6bb323681
+    clientId: 3f355ade-c0c2-4489-b0b5-1dfa55b9419d
     clientSecret: $oidc.pocketid.clientSecret
     redirectUrl: https://argocd.vdgtconsultancy.be/auth/callback
     requestedScopes: ["openid", "profile", "email", "groups"]
