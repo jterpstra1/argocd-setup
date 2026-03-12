@@ -21,3 +21,4 @@ spec:
     syncOptions:
     - PruneLast=true
     - ServerSideApply=true
+    - ServerSideApply.ForceConflicts=true
