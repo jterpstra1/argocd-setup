@@ -10,6 +10,6 @@ data:
     p, role:readonly, repositories, get, *, allow
     p, role:readonly, certificates, get, *, allow
     p, role:readonly, logs, get, *, allow
-    g, argocd_admin, role:admin
-    g, argocd_readonly, role:readonly
+    g, argocd_vdgt_admin, role:admin
+    g, argocd_vdgt_readonly, role:readonly
   scopes: '[groups]'

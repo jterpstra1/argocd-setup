@@ -9,6 +9,12 @@ spec:
   destination:
     namespace: argocd
     name: in-cluster
+  ignoreDifferences:
+  - group: external-secrets.io
+    kind: ExternalSecret
+    jsonPointers:
+    - /status
+    - /spec/refreshInterval
   project: default
   source:
     repoURL: https://github.com/jterpstra1/argocd-setup.git
@@ -22,3 +28,4 @@ spec:
     - PruneLast=true
     - ServerSideApply=true
     - ServerSideApply.ForceConflicts=true
+    - RespectIgnoreDifferences=true
