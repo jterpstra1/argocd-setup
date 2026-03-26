@@ -11,6 +11,9 @@ helmCharts:
   namespace: nginx-ingress
   valuesInline:
     controller:
+      config:
+        use-http2: "true"                    # enable HTTP/2
+        proxy-buffer-size: "16k"
       reportIngressStatus:
         enableLeaderElection: false
       service:
